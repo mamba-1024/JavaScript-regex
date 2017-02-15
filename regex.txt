@@ -183,3 +183,15 @@ return false;
 11. 只能输入两位小数，三位小数(有闪动) 
 
 　　<input maxlength=9 onkeyup="if(value.match(/^\d{3}$/))value="/value.replace(value,parseInt(value/10))" ;value="/value.replace(/\.\d*\./g,’."’)" onKeyPress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 && event.keyCode!=45 || value.match(/^\d{3}$/) || /\.\d{3}$/.test(value)) {event.returnValue=false}" id=text_kfxe name=text_kfxe>
+
+
+去掉字符串中的特殊字符，空格，
+        function stripscript(s){
+            // 去掉所有的 空格 和 特殊字符
+            var pattern = new RegExp("[ `~!@#$^&*()=+|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]")
+            var rs = "";
+            for (var i = 0; i < s.length; i++) {
+                rs = rs+s.substr(i, 1).replace(pattern, '');
+            }
+            return rs;
+        }
