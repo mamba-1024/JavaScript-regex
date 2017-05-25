@@ -198,3 +198,16 @@ return false;
             }
             return rs;
         }
+
+
+// /*只输入数字和一个小数点*/
+handleValidate(obj) {
+        obj = obj.replace(/[^\d.]/g, "");
+        //必须保证第一位为数字而不是.   
+        obj = obj.replace(/^\./g, "");
+        //保证只有出现一个.而没有多个.   
+        obj = obj.replace(/\.{2,}/g, ".");
+        //保证 . 只出现一次，而不能出现两次以上   
+        obj = obj.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+        return obj;
+    }
